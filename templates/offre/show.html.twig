@@ -1,0 +1,56 @@
+{% extends "base.html.twig" %}
+{% block content %}
+<div class="d-flex justify-content-center text-wrap">
+    <a class="fw-bold fm-poppins mb-0  h5 mt-4 link-secondary text-decoration-none" href="{{path('offre')}}">Offres</a><span class="fw-bold fm-poppins mb-0 text-muted h5 mt-4 text-decoration-none lh-sm opacity-50"> <i class="fas fa-angle-right mx-2 my-auto"></i> </span><a class="fw-bold fm-poppins mb-0 link-secondary h5 mt-4 text-decoration-none">{{offresingle.NomOffre}}</a>
+   
+
+</div>
+  	<div class="container my-5">
+		<div class="card">
+			<div class="container-fliud">
+				<div class="wrapper row">
+					<div class="  col-md-6 text-center my-auto">
+						
+						<div class="bg-secondary bg-opacity-25 m-5 p-5 d-flex justify-content-center">
+						  <div class="mx-4" id=""><span class="fm-poppins m-auto text-wrap text-center h-1 fw-bold text-muted">{{offresingle.NomOffre}}</span></div>
+
+						</div>
+					<button class="btn-md btn btn-danger mx-auto">Souscrire {{offresingle.PrixOffres /100}} XOF</button>
+						
+					</div>
+					<div class="details col-md-6 p-4">
+						<h3 class="ms-sm-3 ms-md-0">{{offresingle.NomOffre}}</h3>
+						<div class="rating">
+
+							<span class="review-no">41 personnes ont deja souscrit a cette offres</span>
+						</div>
+                        <p class="small fw-bold mt-2">Description :</p>
+						<p class="mt-2">
+							{{offresingle.Description}}
+						</p>
+						<h4 class="price">Prix : <span>{{(offresingle.PrixOffres /100)|number_format(0, ',', '.')}} XOF</span></h4>
+						<p class="vote">Proposer par :<strong> {{offresingle.agence.NomAgence}}</strong>
+						{% if offresingle.agence.isVerified == true %}
+							<span class="text-success"><i class="fas fa-certificate mx-1"></i> Vérifier</span>
+						
+								{% else %}
+							<span class="text-warning"><i class="fas fa-warning mx-1"></i>Non Vérifier</span>
+						{% endif %}
+						</p>
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+	 {% for Description in offresingle.caracterisiquesofoffres %}
+                 <span><i class="fas fa-circle" style="font-size:7px;"></i>
+                    {{Description.Description}} 
+                    <span class="badge bg-danger">{{Description.TauxReduc}} %</span>
+                    </span>
+                    </br>
+                {% endfor %}
+				</div>
+    <div style="margin-bottom:15rem;"></div>
+{% endblock %}

@@ -1,0 +1,140 @@
+    {% extends 'base.html.twig' %}
+
+
+
+{% block content %}
+
+
+
+    <main class="form-signin align-content-center py-5 my-5">
+        {{ form_start(registrationForm) }}
+        <div class="my-auto text-center  py-auto bg-dark d-flex justify-content-center border-4">
+            <img class="my-4 text-center" src="{{asset('smart-labs-assets/img/logo-sm-4.png')}}" alt="" width="100">
+        </div>
+        <div class="alert alert-danger d-flex align-items-center ld ld-grow-ttb-in  mt-3 " role="alert">
+            <i class="fa-solid fa-triangle-exclamation me-2 "></i>
+            <div>
+                An example alert with an icon
+            </div>
+        </div>
+        <h1 class="h3 mb-3 fw-normal text-center">Inscription (Agences)</h1>
+
+        <div class="form-group">
+            <label for=" " class="my-2 ms-2"><i class="fa-solid fa-envelope-open"></i> Addresse email</label>
+            {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control','id': 'floatingInput','placeholder': 'Entrer votre email'}})
+            }}
+        </div>
+        <div class="form-group">
+            <label for=" " class="my-2 ms-2"><i class="fa-solid fas fa-building-circle-arrow-right"></i> Nom de
+                l'agence</label>
+            {{ form_widget(registrationForm.NomAgence, {'attr': {'class': 'form-control','id': 'floatingInput','placeholder': 'Entrer le nom de votre agence'}})
+            }}
+        </div>
+       
+        <div class="input-group">
+            <label for="floatingInputing" class="my-2 ms-2 w-100"><i class="fa-solid fas fa-location-dot me-2"></i>Coordonnee GPS</label>
+            {{ form_widget(registrationForm.Longitude, {'attr': {'class': 'form-control','id': 'floatingInput','placeholder': 'Longitude'}})
+            }}  
+                {{ form_widget(registrationForm.Latitude, {'attr': {'class': 'form-control','id': 'floatingInput','placeholder': 'Latitude'}})
+            }}  
+           
+        </div>
+        <div class="form-group">
+            <label for=" " class="my-2 ms-2"><i class="fa-solid fas fa-phone-volume me-2"></i>Numero de telephone</label>
+            {{ form_widget(registrationForm.TelAgence, {'attr': {'class': 'form-control','id': 'floatingInput','placeholder': 'Votre numero de telephone'}})
+            }}
+        </div>
+        <div class="form-group">
+            <label for=" " class="my-2 ms-2"><i class="fa-solid fas fa-phone-volume me-2"></i>Numero du registre de
+                commecrce</label>
+            {{ form_widget(registrationForm.NumRegistreCom, {'attr': {'class': 'form-control','id': 'floatingInput','placeholder': 'AA-XXXXXX-XA-X'}})
+            }}
+        </div>
+        </div>
+        <div class="form-group">
+            <label for=" " class="my-2 ms-2"><i class="fa-solid fas fas fa-chart-bar me-2"></i>Description de votre
+                position</label>
+            {{ form_widget(registrationForm.LocationDesc, {'attr': {'class': 'form-control','id': 'floatingInput','placeholder': 'Un breve description de votre position'}})
+            }}
+        </div>
+        <div class="form-group">
+            <label for=" " class="my-2 ms-2"><i class="fa-solid fas fas fa-chart-bar me-2"></i>Description de votre
+                agence</label>
+            {{ form_widget(registrationForm.description, {'attr': {'class': 'form-control','id': 'floatingInput','placeholder': 'Un breve description de votre position'}})
+            }}
+        </div>
+
+        <div class="input-group">
+            <label class="w-100 my-2 ms-2"><i class="fa-solid fa-lock"></i> Mot de passe</label>
+
+            {{ form_widget(registrationForm.password.first, {'attr': {'class': 'form-control','placeholder': 'Votre mot de passe'}})
+            }}
+            <i class="far fa-eye-slash position-absolute end-0 top-50 translate-middle" id="togglePassword"
+                style="cursor: pointer;min-width:40.6px; z-index: 10000;margin-top: 1.2rem;margin-right: -1.5rem;"></i>
+
+
+        </div>
+        <div class="input-group">
+            <label class="w-100 my-2 ms-2"><i class="fa-solid fa-lock"></i> Confirmation de mot de passe</label>
+
+            {{ form_widget(registrationForm.password.second, {'attr': {'class': 'form-control','placeholder': 'Votre mot de passe'}})
+            }}
+            <i class="far fa-eye-slash position-absolute end-0 top-50 translate-middle" id="togglePassword2"
+                style="cursor: pointer;min-width:40.6px; z-index: 10;margin-top: 1.2rem;margin-right: -1.5rem;"></i>
+
+
+        </div>
+
+
+        <div class="checkbox my-3">
+            <label>
+            
+            {{ form_widget(registrationForm.agreeTerms)
+            }}
+            Accepter le nos termes d'utilisatin
+            </label>
+        </div>
+        <div class="row">
+            <div class="col-4"> <button class="w-100 btn btn-sm btn-danger" type="submit"> S'inscrire</button></div>
+            <div class="col-8">
+                <p>Vous disposez deja d'un compte ?? <a href="{{path('app_login')}}" class="link-danger">Se connecter</a></p>
+            </div>
+
+        </div>
+        {{ form_end(registrationForm) }}
+    </main>
+{% endblock %}
+{% block otherscript %}
+    <script>
+        const togglePassword = document.querySelector("#togglePassword");
+        const password = document.querySelector("#agence_registration_form_password_first");
+
+        togglePassword.addEventListener("click", function () {
+
+            // toggle the type attribute
+            const type = password.getAttribute("type") === "password" ? "text" : "password";
+            password.setAttribute("type", type);
+
+            // toggle the eye icon
+            this.classList.toggle('fa-eye-slash');
+
+            this.classList.toggle('fa-eye');
+        });
+    </script>
+    <script>
+        const togglePassword2 = document.querySelector("#togglePassword2");
+        const password2 = document.querySelector("#agence_registration_form_password_second");
+
+        togglePassword2.addEventListener("click", function () {
+
+            // toggle the type attribute
+            const type2 = password2.getAttribute("type") === "password" ? "text" : "password";
+            password2.setAttribute("type", type2);
+
+            // toggle the eye icon
+            this.classList.toggle('fa-eye-slash');
+
+            this.classList.toggle('fa-eye');
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+
+{% block content %}
+<div class="d-flex justify-content-start ms-4">
+    <a class="fw-bold fm-poppins mb-0  h5 mt-4 link-secondary text-decoration-none small" href="{{path('app_agence')}}">Agence</a><span class="fw-bold fm-poppins mb-0 text-muted h5 mt-4 text-decoration-none lh-sm opacity-50 small"> <i class="fas fa-angle-right mx-2 my-auto"></i> </span><a class="fw-bold fm-poppins mb-0 link-secondary h5 mt-4 text-decoration-none small">NomAgence</a>
+</div>
+<div class="row p-2 my-4 mx-4">
+<div class="col-md-5 p-3">
+    <img src="{{asset('smart-labs-assets/img/bg/smatassu.png')}}" alt="" class="img-fluid">
+</div>
+<div class="col-md-7 p-3"></div>
+<h1>Nom de l'agence</h1>
+</div>
+    <div style="margin-bottom:15rem;"></div>
+
+{% endblock %}

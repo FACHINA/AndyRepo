@@ -1,19 +1,813 @@
+{% block head %}
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+<html lang="en">
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
-</html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartLabs-Assu</title>
+    {% block otherlink %}
+        
+    {% endblock %}
+    <link rel="icon" href="{{asset('smart-labs-assets/img/ssa-icon.ico')}}">
+    <link rel="stylesheet" href="{{asset('smart-labs-assets/css/smartlabs.css')}}">
+    <link rel="stylesheet" href="{{asset('smart-labs-assets/css/smartlabs_style.css')}}">
+    <link rel="stylesheet" href="{{asset('smart-labs-assets/css/hover.css')}}">
+    <link rel="stylesheet" href="{{asset('smart-labs-assets/fontawesome/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('smart-labs-assets/css/transition.min.css')}}">
+    <link rel="stylesheet" href="{{asset('smart-labs-assets/css/animate.min.css')}}">
+    <link rel="stylesheet" href="{{asset('smart-labs-assets/css/animate.min.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+
+</head>
+
+
+<body>
+
+
+{#  <div class="toast-container position-absolute">
+ {% for message in app.flashes('notice') %}
+    <div class="toast " role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <img src="..." class="rounded me-2" alt="...">
+      <strong class="me-auto">SSA Assu</strong>
+      <small class="text-muted">Notification</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      {{message}}
+    </div>
+    {% endfor %}
+  </div>
+  
+#}
+   
+
+  
+    <!-- Header-->
+    <!-- header-top-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary container-fluid bg-danger my-0 py-0">
+
+        <div class="container-fluid">
+            <!-- <a href="#" class="navbar-brand mx-0 px-1" style="border-bottom: 0.4rem solid white;border-top: 0.4rem solid white;border-left: 0.4rem solid whitesmoke;">SmartLabs </a><a  class="navbar-brand px-2 mx-0" style="color: #0d6efd;background-color: white;border-bottom: 0.4rem solid white;border-top: 0.4rem solid white;">Assu</a>-->
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav">
+
+                    <div class="nav-item ">
+                        <a href="tel:+229 60 80 05 73" class="btn btn-white text-white d-inline-flex hvr-icon-rotate"
+                            data-hover="dropdown" data-bs-auto-close="true" data-bs-offset="10,30"><i
+                                class="fa-solid fa-phone my-auto ms-1 hvr-icon pe-1"></i> Appeler-nous</a>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class=" navbar justify-content-center w-50">
+
+            </div>
+            <button class="btn d-none d-lg-block  rounded-2 text-white " type="button">
+                <i class="fab fa-github"></i>
+            </button>
+
+            <button class="btn d-none d-lg-block  rounded-2 text-white" type="button">
+                <i class="fab fa-twitter"></i>
+            </button>
+
+            <button class="btn d-none d-lg-block  rounded-2 text-white" type="button">
+                <i class="fab fa-facebook"></i>
+
+            </button>
+
+
+        </div>
+    </nav>
+    <!-- header-top-->
+    <!-- header-middle-->
+    <div class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark  container-fluid py-2">
+            <div class="container-fluid d-flex ">
+                <!-- <a href="#" class="navbar-brand mx-0 px-1" style="border-bottom: 0.4rem solid white;border-top: 0.4rem solid white;border-left: 0.4rem solid whitesmoke;">SmartLabs </a><a  class="navbar-brand px-2 mx-0" style="color: #0d6efd;background-color: white;border-bottom: 0.4rem solid white;border-top: 0.4rem solid white;">Assu</a>-->
+            <a href="{{path('acceuil')}}">
+                <img src="{{asset('smart-labs-assets/img/logo-sm-4.png')}}"
+                    class="navbar-brand img-resp justify-content-start" alt="">
+                    </a>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
+
+                    <form class="" style="margin-left:4rem;">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Recherche..." data-bs-toggle="dropdown"
+                                data-bs-target="#dropdownMenuSearch"
+                                style="border-radius: .1rem 0rem 0rem .1rem;width: 20rem;">
+                            <ul class="dropdown-menu w-100" aria-labelledby="dropdownMenuSearch">
+                                <li class="text-truncate"><a class="dropdown-item2  " href="#">Aucun resultas <span
+                                            class="badge bg-danger ">Module en cours de devellopement</span></a></li>
+
+                            </ul>
+                            <button type="button" class="btn btn-danger"
+                                style="border-radius: 0rem .1rem .1rem 0rem;"><i
+                                    class="fa-solid fa-magnifying-glass"></i></i></button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="justify-content-end d-flex">
+
+
+                    <button class="btn d-none d-lg-block  rounded-2 text-white p-0 m-0" type="button"
+                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample2" aria-controls="offcanvasExample2"
+                        data-bs-toggle="tooltip" data-bs-placement="right" title="Souscription en cours">
+                        <i class="fab fa-buffer"></i>
+                        <p class="m-0 p-0 small">Souscription</p>
+                    </button>
+
+                    <button class="btn d-none d-lg-block  rounded-2 text-white" type="button">
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                        <p class="m-0 p-0 small">Favoris</p>
+                    </button>
+                    <div class="dropdown  d-none d-lg-block px-3 align-middle my-auto">
+                        {% if app.user %}
+                        <a href="#" class="align-middle text-white text-decoration-none " id="dropdownUser2"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+
+                            <strong class="me-1 text-truncate w-25">{{app.user.getFullName()}}</strong>
+                            {% if is_granted('ROLE_AGENCE') %}
+                            <i class="fa-solid fa-building-circle-check p-2 rounded-3 bg-danger"></i>
+                            {% else %}
+                            <i class="fa-solid fa-user p-2 rounded-3 bg-danger"></i>
+                        </a>
+                        {% endif %}
+
+                        {% else %}
+                        <a class="btn btn-sm btn-danger" href="{{path('app_login')}}">Connexion Requise !!<a>
+
+                             
+
+
+
+
+
+                                {% endif %}
+
+
+                                <ul class="dropdown-menu bg-danger" aria-labelledby="dropdownUser2"
+                                    style="margin-top: 1.2rem;">
+                                    <a id="triangle" class="position-absolute top-0 start-50 translate-middle-x"
+                                        style="margin-top: -1.2rem;"></a>
+                                    <li><a class="dropdown-item" href="#">Souscrire</a></li>
+                                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="{{path('app_logout')}}">Se deconnecter</a></li>
+                                </ul>
+                    </div>
+                    <div class="mx-0 text-resp">
+                        <button class="navbar-toggler text-white" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasExample2" data-bs-toggle="tooltip" data-bs-placement="right"
+                            title="Souscrition en cours" style="border: none;cursor:pointer"
+                            aria-controls="offcanvasExample2">
+                            <i class="fab fa-buffer"></i>
+                        </button>
+                        <button class=" navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offcanvas12"
+                            aria-controls="offcanvasExample" style="border: none;cursor:pointer" href="#">
+                            <i class="fa-solid fa-magnifying-glass text-white"></i>
+                        </button>
+                        <a class="ps-2 navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+                            aria-controls="offcanvasExample" style="border: none;cursor:pointer">
+                            <i class="fa-solid fas fa-bars text-white" id="offcanvas-btn"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- fin header-midlle-->
+        <!-- header-bottom-->
+        <div class="d-none d-lg-block">
+            <nav class="navbar  navbar-expand-sm navbar-light bg-white shadow " style="height:2.4rem;"
+                aria-label="Tenth navbar example">
+                <div class="container-fluid">
+
+
+                    <div class="collapse navbar-collapse justify-content-md-center fm-poppins fw-normal"
+                        id="navbarsExample08">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link " aria-current="page" style=" font-size: 0.9rem;"
+                                    href="{{path('acceuil')}}">Acceuil</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" style=" font-size: 0.9rem;" href="#">Assurances</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" style=" font-size: 0.9rem;" href="{{path('offre')}}">Les offres</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" style=" font-size: 0.9rem;">A-propos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" style=" font-size: 0.9rem;">Nous contacter</a>
+                            </li>
+                            <li class="nav-item dropdown" style=" font-size: 0.9rem;">
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdown08" data-bs-toggle="dropdown"
+                                    aria-expanded="false">Inscription</a>
+                                <ul class="dropdown-menu" style=" font-size: 0.9rem;" aria-labelledby="dropdown08">
+                                    <li><a class="dropdown-item2" href="{{path('inscription-agence')}}">Agences</a></li>
+                                    <li><a class="dropdown-item2" href="{{path('inscription-client')}}">Client</a></li>
+
+                                </ul>
+                            </li>
+
+                            </li>
+                            <li class="nav-item link-dark">
+                                <a class="nav-link" style=" font-size: 0.9rem;"
+                                    href="{{path('app_login')}}">Connexion</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    {% endblock %}
+    {% block content %}
+
+    {% endblock %}
+    {% block foot %}
+    <!--Element modal et offcanvas-->
+    <div class="elements">
+        <!-- Offcanvas du menu-->
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+            aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header bg-danger">
+
+                <div class="dropdown mx-auto">
+                    {% if app.user %}
+                    <a href="#" class="align-middle text-white text-decoration-none " id="dropdownUser2"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+
+                        <strong class="me-1 fm-poppins">{{app.user.getFullName()}}</strong>
+                        {% if is_granted('ROLE_AGENCE') %}
+                        <i class="fa-solid fa-building-circle-check p-2 rounded-3 bg-dark"></i>
+                        {% else %}
+                        <i class="fa-solid fa-user p-2 rounded-3 bg-dark"></i>
+
+                        {% endif %}
+
+                        {% endif %}
+                </div>
+                <a class=" text-reset" data-bs-dismiss="offcanvas" aria-label="Close"><i
+                        class="fa-solid fa-xmark fa-2xl text-white"></i></a>
+            </div>
+            <div class="offcanvas-body bg-dark text-left">
+
+                <div class="flex-shrink-0 row  bg-dark text-white border-white">
+                    <a href="/" class="d-flex align-items-center   mb-1 link-dark text-decoration-none ">
+
+                        <span class="fs-5 fw-semibold text-white mx-auto"><img src="{{asset('smart-labs-assets/img/logo-sm-4.png')}}" alt=""
+                                width="100"></span>
+
+                    </a>
+
+                    <ul class="list-unstyled  ">
+                        <hr class="py-1 rounded-3 bg-white">
+                        <li class="my-1  rounded-3 ">
+                            <a class="dropdown-item3  align-items-between rounded collapsed" href="{{path('acceuil')}}">
+                                Acceuil
+                            </a>
+
+                        </li>
+                        <li class="my-1  rounded-3">
+                            <a class="dropdown-item3  align-items-center rounded collapsed " href="#">
+                                Assurances
+                            </a>
+
+                        </li>
+                        <li class="my-1  rounded-3 ">
+                            <a class="dropdown-item3  align-items-center rounded collapsed " href="{{path('offre')}}">
+                                Les offres
+                            </a>
+
+                        </li>
+                        <li class="my-1  rounded-3 ">
+                            <a class="dropdown-item3  align-items-center rounded collapsed " href="#">
+                                A-propos
+                            </a>
+
+                        </li>
+                        <li class="my-1  rounded-3 ">
+                            <a class="dropdown-item3  align-items-center rounded collapsed " href="#">
+                                Nous contacter
+                            </a>
+
+                        </li>
+
+                        {% if app.user %}
+                        </li>
+                        <li class="my-1  rounded-3 ">
+                            <a class="dropdown-item3  align-items-center rounded collapsed "
+                                href="{{path('app_logout')}}">
+                                Deconnexion
+                            </a>
+
+                        </li>
+                        {% else %}
+                        <ul class="list-unstyled">
+                            <li class=" my-1  rounded-3 ">
+                                <a class="dropdown-item3  d-flex justify-content-between rounded collapsed "
+                                    data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false"
+                                    href="#">
+                                    <span>Inscription</span> <i class="fa-solid fa-caret-down ms-1 my-auto"></i>
+                                </a>
+                            </li>
+
+                            <div class="collapse" id="home-collapse" style="">
+                                <ul class=" list-unstyled fw-normal pb-1">
+                                    <li class="mx-3">
+                                        <a class="dropdown-item3 ps-4 pe-n4  align-items-center rounded collapsed "
+                                            href="{{path('inscription-agence')}}">
+                                            Agence
+                                        </a>
+                                    </li>
+                                    <li class="mx-3">
+                                        <a class="dropdown-item3 ps-4 pe-n4 align-items-center rounded collapsed"
+                                            href="{{path('inscription-client')}}">
+                                            Client
+                                        </a>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+                        </ul>
+                        </li>
+                        <li class="my-1  rounded-3 ">
+                            <a class="dropdown-item3  align-items-center rounded collapsed "
+                                href="{{path('app_login')}}">
+                                Se connecter
+                            </a>
+
+                        </li>
+
+
+                        {% endif %}
+
+
+
+
+
+
+
+
+                </div>
+                <hr class="py-1 rounded-3 bg-white">
+                <ul class="list-unstyled mt-4 text-center">
+                    <li class="my-1  rounded-3 ">
+                        <a class="dropdown-item3   d-flex justify-content-between rounded collapsed " href="#">
+                            <span>Carte</span> <i class="fas fa-cart-shopping my-auto"></i>
+                        </a>
+
+                    </li>
+                    <li class="my-1  rounded-3">
+                        <a class="dropdown-item3   d-flex justify-content-between rounded collapsed  " href="#">
+                            <span>Souhait</span> <i class="fas fa-star-half-stroke my-auto"></i>
+                        </a>
+
+                    </li>
+                    <li class="my-1  rounded-3">
+                        <a class="dropdown-item3  d-flex justify-content-between rounded collapsed" href="#">
+                            <span>Compte</span> <i class="fas fa-user-gear my-auto"><span
+                                    class="badge bg-white text-dark ms-1 my-auto">01</span>
+                        </a></i>
+
+                    </li>
+                    <ul class="list-unstyled row mx-1 text-center mt-3">
+
+                        <li class="mb-1 bg-danger hvr-underline-from-center   border border-2 border-dark rounded-3">
+                            <a class="btn link-white text-white align-items-center rounded collapsed  ">
+                                Faites une don <i class="fa-solid fa-money-bill-1-wave text-white fa-xl mx-2"></i>
+                            </a>
+
+                        </li>
+                    </ul>
+
+                </ul>
+                <div class="offcanvas-footer text-center my-1 shadows pb-3">
+                    <a class="btn rounded-2 text-white" type="button" href="tel:+229 60 80 05 73">
+                        <i class="fas fa-phone"></i>
+
+                    </a>
+                    <button class="btn rounded-2 text-white" type="button">
+                        <i class="fab fa-github"></i>
+                    </button>
+
+                    <button class="btn  rounded-2 text-white" type="button">
+                        <i class="fab fa-twitter"></i>
+                    </button>
+
+                    <button class="btn rounded-2 text-white" type="button">
+                        <i class="fab fa-facebook"></i>
+
+                    </button>
+
+
+
+                </div>
+
+
+
+            </div>
+        </div>
+
+        <!-- fin Offcanvas du menu-->
+
+        <!-- Offcanvas de la carte-->
+        <div class="offcanvas offcanvas-end " tabindex="-1" id="offcanvasExample2"
+            aria-labelledby="offcanvasExampleLabel2">
+            <div class="offcanvas-header shadow bg-dark">
+                <hr>
+                <button type="button" class="btn-close text-reset text-white btn-close-white bg-white"
+                    data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
+                <span class="fs-5 fw-semibold mx-auto text-white">Souscription en cours</span>
+            </div>
+            <div class="offcanvas-body bg-transparent">
+
+                <div class="flex-shrink-0 bg-transparent align-content-center">
+                    <span class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none  ">
+                        <div class="offcanvas-body overflow-hidden bg-transparent ">
+
+                            <div class="row border-bottom shadow border-top py-1  mt-3 bg-danger"
+                                style="border-radius: 15px 15px 15px 15px;box-shadow: 1.5px 1.5px 1.5px 1.5px #00000014;">
+
+                                <div class="col-9 my-auto">
+                                    <small>
+                                        <span class="badge bg-white text-dark"> Tade Assurances</span></br>
+                                        <span style="font-family:poppins,sans-serif ;" class="text-white"> Assurance vie
+                                            (Gankpo)
+                                        </span></br>
+                                        <div
+                                            class="d-flex  flex-wrap flex-lg-nowrap flex-md-nowrap flex-xl-nowrap flex-xxl-nowrap">
+                                            <span class="badge bg-danger"> Souscrit le : <span
+                                                    class="badge bg-dark">29/Aout/2005</span></span>
+                                            <span class="badge bg-danger"> Prend fin le : <span
+                                                    class="badge bg-dark">29/Aout/2005</span></span>
+                                        </div>
+                                    </small>
+                                </div>
+
+                                <div class="col-3 my-auto ">
+                                    <div class="d-flex justify-content-end">
+                                        <i class="fa-solid fa-ellipsis-vertical text-white py-1 bg-dark px-2 rounded-3 mx-1"
+                                            role="button" id="brandlink"></i>
+                                        <i class="fa-solid fas fa-plus text-white p-1 mx-1 bg-dark rounded-3 "
+                                            data-bs-toggle="collapse" role="button"
+                                            data-bs-target="#menucollapseoffresid" id="brandlink"></i>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="collapse bg-dark rounded-3 " id="menucollapseoffresid">
+                                <div class="d-flex justify-content-around">
+                                    <btn class="btn btn-danger rounded-3 btn-sm m-2">Voir les details</btn>
+                                    <btn class="btn btn-danger rounded-3 btn-sm m-2">Utilisation</btn>
+                                </div>
+                            </div>
+                            <div class="row border-bottom shadow border-top py-1  mt-3 bg-danger"
+                                style="border-radius: 15px 15px 15px 15px;box-shadow: 1.5px 1.5px 1.5px 1.5px #00000014;">
+
+                                <div class="col-9 my-auto">
+                                    <small>
+                                        <span class="badge bg-white text-dark"> Tade Assurances</span></br>
+                                        <span style="font-family:poppins,sans-serif ;" class="text-white"> Assurance vie
+                                            (Gankpo)
+                                        </span></br>
+                                        <div class="d-flex ">
+                                            <span class="badge bg-danger"> Souscrit le : <span
+                                                    class="badge bg-dark">29/Aout/2005</span></span>
+                                            <span class="badge bg-danger"> Prend fin le : <span
+                                                    class="badge bg-dark">29/Aout/2005</span></span>
+                                        </div>
+                                    </small>
+                                </div>
+
+                                <div class="col-3 my-auto ">
+                                    <div class="d-flex justify-content-end">
+                                        <i class="fa-solid fa-ellipsis-vertical text-white py-1 bg-dark px-2 rounded-3 mx-1"
+                                            role="button" id="brandlink"></i>
+                                        <i class="fa-solid fas fa-plus text-white p-1 mx-1 bg-dark rounded-3 "
+                                            role="button" id="brandlink"></i>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row border-bottom shadow border-top py-1  mt-3 bg-danger"
+                                style="border-radius: 15px 15px 15px 15px;box-shadow: 1.5px 1.5px 1.5px 1.5px #00000014;">
+
+                                <div class="col-9 my-auto">
+                                    <small>
+                                        <span class="badge bg-white text-dark"> Tade Assurances</span></br>
+                                        <span style="font-family:poppins,sans-serif ;" class="text-white"> Assurance vie
+                                            (Gankpo)
+                                        </span></br>
+                                        <div class="d-flex">
+                                            <span class="badge bg-danger"> Souscrit le : <span
+                                                    class="badge bg-dark">29/Aout/2005</span></span>
+                                            <span class="badge bg-danger"> Prend fin le : <span
+                                                    class="badge bg-dark">29/Aout/2005</span></span>
+                                        </div>
+                                    </small>
+                                </div>
+
+                                <div class="col-3 my-auto ">
+                                    <div class="d-flex justify-content-end">
+                                        <i class="fa-solid fa-ellipsis-vertical text-white py-1 bg-dark px-2 rounded-3 mx-1"
+                                            role="button" id="brandlink"></i>
+                                        <i class="fa-solid fas fa-plus text-white p-1 mx-1 bg-dark rounded-3 "
+                                            role="button" id="brandlink"></i>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row border-bottom shadow border-top py-1  mt-3 bg-danger"
+                                style="border-radius: 15px 15px 15px 15px;box-shadow: 1.5px 1.5px 1.5px 1.5px #00000014;">
+
+                                <div class="col-9 my-auto">
+                                    <small>
+                                        <span class="badge bg-white text-dark"> Tade Assurances</span></br>
+                                        <span style="font-family:poppins,sans-serif ;" class="text-white"> Assurance vie
+                                            (Gankpo)
+                                        </span></br>
+                                        <div class="d-flex">
+                                            <span class="badge bg-danger"> Souscrit le : <span
+                                                    class="badge bg-dark">29/Aout/2005</span></span>
+                                            <span class="badge bg-danger"> Prend fin le : <span
+                                                    class="badge bg-dark">29/Aout/2005</span></span>
+                                        </div>
+                                    </small>
+                                </div>
+
+                                <div class="col-3 my-auto ">
+                                    <div class="d-flex justify-content-end">
+                                        <i class="fa-solid fa-ellipsis-vertical text-white py-1 bg-dark px-2 rounded-3 mx-1"
+                                            role="button" id="brandlink"></i>
+                                        <i class="fa-solid fas fa-plus text-white p-1 mx-1 bg-dark rounded-3 "
+                                            role="button" id="brandlink"></i>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row border-bottom shadow border-top py-1  mt-3 bg-danger"
+                                style="border-radius: 15px 15px 15px 15px;box-shadow: 1.5px 1.5px 1.5px 1.5px #00000014;">
+
+                                <div class="col-9 my-auto">
+                                    <small>
+                                        <span class="badge bg-white text-dark"> Tade Assurances</span></br>
+                                        <span style="font-family:poppins,sans-serif ;" class="text-white"> Assurance vie
+                                            (Gankpo)
+                                        </span></br>
+                                        <div class="d-flex">
+                                            <span class="badge bg-danger"> Souscrit le : <span
+                                                    class="badge bg-dark">29/Aout/2005</span></span>
+                                            <span class="badge bg-danger"> Prend fin le : <span
+                                                    class="badge bg-dark">29/Aout/2005</span></span>
+                                        </div>
+                                    </small>
+                                </div>
+
+                                <div class="col-3 my-auto ">
+                                    <div class="d-flex justify-content-end">
+                                        <i class="fa-solid fa-ellipsis-vertical text-white py-1 bg-dark px-2 rounded-3 mx-1"
+                                            role="button" id="brandlink"></i>
+                                        <i class="fa-solid fas fa-plus text-white p-1 mx-1 bg-dark rounded-3 "
+                                            role="button" id="brandlink"></i>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row border-bottom shadow border-top py-1  mt-3 bg-danger"
+                                style="border-radius: 15px 15px 15px 15px;box-shadow: 1.5px 1.5px 1.5px 1.5px #00000014;">
+
+                                <div class="col-9 my-auto">
+                                    <small>
+                                        <span class="badge bg-white text-dark"> Tade Assurances</span></br>
+                                        <span style="font-family:poppins,sans-serif ;" class="text-white"> Assurance vie
+                                            (Gankpo)
+                                        </span></br>
+                                        <div class="d-flex">
+                                            <span class="badge bg-danger"> Souscrit le : <span
+                                                    class="badge bg-dark">29/Aout/2005</span></span>
+                                            <span class="badge bg-danger"> Prend fin le : <span
+                                                    class="badge bg-dark">29/Aout/2005</span></span>
+                                        </div>
+                                    </small>
+                                </div>
+
+                                <div class="col-3 my-auto ">
+                                    <div class="d-flex justify-content-end">
+                                        <i class="fa-solid fa-ellipsis-vertical text-white py-1 bg-dark px-2 rounded-3 mx-1"
+                                            role="button" id="brandlink"></i>
+                                        <i class="fa-solid fas fa-plus text-white p-1 mx-1 bg-dark rounded-3 "
+                                            role="button" id="brandlink"></i>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row border-bottom shadow border-top py-1  mt-3 bg-danger"
+                                style="border-radius: 15px 15px 15px 15px;box-shadow: 1.5px 1.5px 1.5px 1.5px #00000014;">
+
+                                <div class="col-9 my-auto">
+                                    <small>
+                                        <span class="badge bg-white text-dark"> Tade Assurances</span></br>
+                                        <span style="font-family:poppins,sans-serif ;" class="text-white"> Assurance vie
+                                            (Gankpo)
+                                        </span></br>
+                                        <div class="d-flex">
+                                            <span class="badge bg-danger"> Souscrit le : <span
+                                                    class="badge bg-dark">29/Aout/2005</span></span>
+                                            <span class="badge bg-danger"> Prend fin le : <span
+                                                    class="badge bg-dark">29/Aout/2005</span></span>
+                                        </div>
+                                    </small>
+                                </div>
+
+                                <div class="col-3 my-auto ">
+                                    <div class="d-flex justify-content-end">
+                                        <i class="fa-solid fa-ellipsis-vertical text-white py-1 bg-dark px-2 rounded-3 mx-1"
+                                            role="button" id="brandlink"></i>
+                                        <i class="fa-solid fas fa-plus text-white p-1 mx-1 bg-dark rounded-3 "
+                                            role="button" id="brandlink"></i>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row border-bottom shadow border-top py-1  mt-3 bg-danger"
+                                style="border-radius: 15px 15px 15px 15px;box-shadow: 1.5px 1.5px 1.5px 1.5px #00000014;">
+
+                                <div class="col-9 my-auto">
+                                    <small>
+                                        <span class="badge bg-white text-dark"> Tade Assurances</span></br>
+                                        <span style="font-family:poppins,sans-serif ;" class="text-white"> Assurance vie
+                                            (Gankpo)
+                                        </span></br>
+                                        <div class="d-flex">
+                                            <span class="badge bg-danger"> Souscrit le : <span
+                                                    class="badge bg-dark">29/Aout/2005</span></span>
+                                            <span class="badge bg-danger"> Prend fin le : <span
+                                                    class="badge bg-dark">29/Aout/2005</span></span>
+                                        </div>
+                                    </small>
+                                </div>
+
+                                <div class="col-3 my-auto ">
+                                    <div class="d-flex justify-content-end">
+                                        <i class="fa-solid fa-ellipsis-vertical text-white py-1 bg-dark px-2 rounded-3 mx-1"
+                                            role="button" id="brandlink"></i>
+                                        <i class="fa-solid fas fa-plus text-white p-1 mx-1 bg-dark rounded-3 "
+                                            role="button" id="brandlink"></i>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+                        </div>
+
+                    </span>
+
+                </div>
+            </div>
+            <div class="offcanvas-header mx-auto shadow w-100 bg-dark">
+
+                <button type="button" class="btn btn-lg btn-danger mx-auto">Historique de souscription</button>
+
+            </div>
+        </div>
+        <!-- fin Offcanvas de la carte-->
+        <!-- singn modal-->
+
+        <div class="modal modal-signin  py-5 " tabindex="-1" role="dialog" id="modalSignin">
+            <div class="modal-dialog ld ld-float-btt-in " role="document">
+                <div class="modal-content rounded-5 shadow ">
+                    <div class="modal-header p-5 pb-4 border-bottom-0">
+                        <!-- <h5 class="modal-title">Modal title</h5> -->
+                        <h2 class="fw-bold mb-0">Sign up for free</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body p-5 pt-0 ">
+                        <form class="">
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control rounded-4" id="floatingInput"
+                                    placeholder="name@example.com">
+                                <label for="floatingInput">Email address</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control rounded-4" id="floatingPassword"
+                                    placeholder="Password">
+                                <label for="floatingPassword">Password</label>
+                            </div>
+                            <button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary" type="submit">Sign up</button>
+                            <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
+                            <hr class="my-4">
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- fin singn modal-->
+
+        <div class="offcanvas offcanvas-top bg-dark mt-2" data-bs-scroll="true" data-bs-backdrop="false"
+            style="height: 5rem;" tabindex="-1" id="offcanvas12" aria-labelledby="offcanvasTopLabel">
+            <div class="px-auto row my-auto mx-auto col-12">
+                <div class=" col-12">
+                    <input type="search" class="form-control px-5" value="">
+                    <button class="btn btn-danger btn-sm position-absolute translate-mmiddle"
+                        style="margin-top: -2.2rem;margin-left: 0.2rem;"><i class="fas fa-search"></i></button>
+                    <div class=" position-absolute end-0 top-50 translate-middle"> <button type="button"
+                            class="btn bg-transparent" data-bs-dismiss="offcanvas" aria-label="Close"><i
+                                class="fas fa-xmark-circle"></i></button>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+        <!-- Fin Element modal et offcanvas-->
+    </div>
+
+
+  
+{#
+    <div class="d-flex justify-content-center max-w-10 mx-auto py-5">
+        <video autoplay="false" controls class=" border border-3 rounded-3 border-dark img-fluid">
+            <source src="{{asset('smart-labs-assets/img/vid.mp4')}}" type="video/mp4"></video>
+    </div>
+    #}
+    
+    <footer class="mt-5 position-relative bottom-0 w-100  start-0">
+        <div class=" animate__animated animate__fadeInUp bg-danger py-3 d-flex justify-content-around  mb-n40  w-100 border-top-4"
+            style="position:absolute;margin-top:-4.35rem;">
+
+            <div class="mb-3 d-flex " style="margin-inline:1rem;">
+                <input type="text" class="form-control " placeholder="Votre addresse email">
+                <button class="btn bg-dark btn-sm text-white">Newsletter</button>
+            </div>
+        </div>
+        <div class="footer bg-dark position-relative pt-4">
+            <div class="w-100 d-flex justify-content-center">
+                <img src="{{asset('smart-labs-assets/img/logo-sm-4.png')}}" alt="" width="175" class="my-2">
+            </div>
+            <div style="font-family: poppins , sans-serif;" class="d-flex justify-content-center flex-wrap ">
+                <a href="" class="bg-transparent link-light mx-2 fm-poppins fw-bold"
+                    style="text-decoration: none; font-size:0.7rem;">Acceuil</a>
+                <a href="" class="bg-transparent link-light mx-2 fm-poppins fw-bold"
+                    style="text-decoration: none; font-size:0.7rem;">Assurances</a>
+                <a href="" class="bg-transparent link-light mx-2 fm-poppins fw-bold"
+                    style="text-decoration: none; font-size:0.7rem;">Souscription</a>
+                <a href="" class="bg-transparent link-light mx-2 fm-poppins fw-bold"
+                    style="text-decoration: none; font-size:0.7rem;">Utilisation</a>
+                <a href="" class="bg-transparent link-light mx-2 fm-poppins fw-bold"
+                    style="text-decoration: none; font-size:0.7rem;">A-propos</a>
+            </div>
+            <div style="font-family: poppins , sans-serif; font-size:0.7rem; opacity: 0.5;"
+                class="d-flex justify-content-center text-white pt-2">
+                <p>2021 - 2022 &copy; SmartLabsAssu</p>
+            </div>
+
+
+        </div>
+    </footer>
+
+</body>
+
+<script src="{{asset('smart-labs-assets/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('smart-labs-assets/js/jquery-3.6.0.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('smart-labs-assets/js/slick.js')}}"></script>
+<script type="text/javascript" src="{{asset('smart-labs-assets/js/script.js')}}"></script>
+<script>
+  $(document).ready(function () {
+
+            $('.toast').toast('show');
+
+        });
+
+</script>
+{% block otherscript %}
+
+{% endblock %}
+{% endblock %}

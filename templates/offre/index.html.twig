@@ -1,0 +1,125 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+<div>
+    <h2 class="fw-bold fm-poppins mb-0 text-center text-muted h1 mt-4">Nos offres</h2>
+    <div class="mb-4 mx-auto row-col-5 py-auto row d-flex justify-content-center">
+
+        <!-- Gradient divider -->
+        <div class="col-2 ms-n6">
+            <hr>
+        </div>
+        <i class="fa-solid fa-certificate my-auto col-1 d-flex justify-content-center "></i>
+        <div class="col-2 me-n6">
+            <hr>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="my-1 mx-4 d-flex justify-content-center">
+    <span class="fw-bold alert alert-secondary fm-poppins mt-2 text-center px-auto text-muted h8">A votre attention pour
+        des raison d'ethique le prix des offres ne sera afficher que lorsque vous procedere a l'achat</span>
+</div>
+
+<div class="row mx-4 my-3">
+    <div class="col-md-3 mx-auto px-auto">
+        <div class="input-group mx-3">
+            <h1 class="my-2 h5 fm-poppins fw-bold text-muted">Rechercher l'offre qui vous conviendra le mieux</h1>
+            <input type="search" name="" class="form-control" id="">
+            <button type="button" class="btn btn-sm btn-danger"> <i class="fas fa-search mx-1"></i></button>
+            <h1 class="my-2 h6 fm-poppins fw-bold text-muted mb-1 ms-3">Trier</h1>
+            <h1 class="my-2 h6 fm-poppins fw-bold text-muted card p-2 mt-0">Par categorie</h1>
+            <div class="form-check form-switch w-100 my-2 ms-2">
+                <input class="form-check-input ckeck" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                <label class="form-check-label" for="flexSwitchCheckChecked">Assurance vie</label>
+            </div>
+            <div class="form-check form-switch w-100 my-2 ms-2">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                <label class="form-check-label" for="flexSwitchCheckChecked">Assurance Maladie</label>
+            </div>
+            <div class="form-check form-switch w-100 my-2 ms-2">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                <label class="form-check-label" for="flexSwitchCheckChecked">Assurance Vehicule</label>
+            </div>
+            <div class="form-check form-switch w-100 my-2 ms-2">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                <label class="form-check-label" for="flexSwitchCheckChecked">Assurance pour votre maison</label>
+            </div>
+
+
+            <h1 class="my-2 h6 fm-poppins fw-bold text-muted card p-2 mt-0">Par etablissement</h1>
+            <div class="form-check form-switch w-100 my-2 ms-2">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                <label class="form-check-label" for="flexSwitchCheckChecked">Assurance vie</label>
+            </div>
+            <div class="form-check form-switch w-100 my-2 ms-2">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                <label class="form-check-label" for="flexSwitchCheckChecked">Assurance Maladie</label>
+            </div>
+            <div class="form-check form-switch w-100 my-2 ms-2">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                <label class="form-check-label" for="flexSwitchCheckChecked">Assurance Vehicule</label>
+            </div>
+            <div class="form-check form-switch w-100 my-2 ms-2">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+                <label class="form-check-label" for="flexSwitchCheckChecked">Assurance pour votre maison</label>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="col-md-9 row mx-auto px-auto d-flex justify-content-start">
+        <div class="d-block d-md-none my-2 fm-popins text-center h7 p-4 bg-secondary bg-opacity-25">Resultats des
+            recherches </div>
+            {% for offres in offre %}
+            <div class="col-md-5 col-lg-4">
+
+            <div class="card m-2">
+                <div class="card-header bg-dark text-white fm-poppins text-truncate">
+                    <img src="{{asset('smart-labs-assets/img/IMG_0727.jpeg')}}" height="30" width="30" alt=""
+                        class="rounded-circle">
+                     
+                                {{offres.Agence.NomAgence}} 
+             
+                  
+                </div>
+                <span class="text-black badge mt-2 mb-0">{{offres.categoriestooffres.nomCat}}</span>
+
+                <div class="card-body  text-white">
+                    <h5 class="card-body bg-danger rounded-3 text-center fm-poppins fw-bold small mb-0">Assurance combo
+                         {{offres.NomOffre}}</h5>
+                    <div class=" bg-secondary small mt-0 rounded-bottom bg-opacity-25  small py-1 px-2 w-80 mx-auto">
+                      {#  <a id="trianglesecondary" class="position-absolute top-75 start-50 translate-middle" style="margin-top:-10px;"></a>#}
+                        <span class=" small text-center fm-poppins small text-black">{{offres.Description}}</span>
+                    </div>
+                    <div class="text-black ">
+                   {#
+                {% for Description in offres.caracterisiquesofoffres %}
+                 <span><i class="fas fa-circle" style="font-size:7px;"></i>
+                    {{Description.Description}} 
+                    <span class="badge bg-danger">{{Description.TauxReduc}} %</span>
+                    </span>
+                    </br>
+                {% endfor %}
+                #}
+            </div>
+                </div>
+                <div class=" mt-0 mb-2 mx-2">
+                    <a href="{{path('offre_single' , { 'slug': offres.slug } )}}" class="btn btn-dark text-nowrap w-50 btn-sm ">Souscrire</a>
+                </div>
+            </div>
+        </div>
+            {% endfor %}
+
+
+
+
+
+    </div>
+</div>
+
+<div style="margin-bottom:15em;"></div>
+{% endblock %}

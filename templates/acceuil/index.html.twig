@@ -1,0 +1,462 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block content %}
+  {% for message in app.flashes('notice') %}
+  <div class="toast fixed-bottom mb-3 ms-3 rounded-3" role="alert" aria-live="assertive" aria-atomic="true" >
+    <div class="toast-header bg-dark">
+      <img src="{{asset('smart-labs-assets/img/ssa-icon.ico')}}" class="rounded ms-3 border border-3 border-white my-0 rounded-circle me-2" height="35" width="35" alt="...">
+      <strong class="me-auto text-white fw-bold fm-poppins">SmartLabs-Assu</strong>
+      <small class="text-white">Notification</small>
+      <a  class="btn text-white " data-bs-dismiss="toast" aria-label="Close"><i class="fas fa-xmark"></i></a>
+    </div>
+    <div class="toast-body">
+      {{message}}
+    </div>
+  </div>
+    {% endfor %}
+ 
+
+
+  <main class="container-fluid px-0 ">
+
+    <div id="carouselExampleDark3" class="carousel carousel-dark slide w-100 " data-bs-ride="carousel">
+
+      <div class="carousel-indicators">
+        <div data-bs-target="#carouselExampleDark3" data-bs-slide-to="0" class="active mx-1" aria-current="true"
+          aria-label="Slide 1" style="cursor:pointer;">
+
+        </div>
+        <div data-bs-target="#carouselExampleDark3" data-bs-slide-to="1" class="mx-1" aria-current="true"
+          aria-label="Slide 2" style="cursor:pointer;">
+
+        </div>
+        <div data-bs-target="#carouselExampleDark3" data-bs-slide-to="2" class="mx-1" aria-current="true"
+          aria-label="Slide 3" style="cursor:pointer;">
+
+        </div>
+
+      </div>
+
+      <div class="carousel-inner" style="max-height:30rem;">
+        <div class="carousel-item active shine-hover" data-bs-interval="7000">
+          <div class="overlay"></div>
+          <img src="{{asset('smart-labs-assets/img/bg/smatassu.png')}}" class="d-block w-100 d-flex img-block"
+            alt="...">
+
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+          <div class="overlay"></div>
+          <img src="{{asset('smart-labs-assets/img/bg/smart-presentation-1.png')}}" class="d-block w-100 img-block" alt="..."
+            style="border-radius: 0rem">
+
+        </div>
+        <div class="carousel-item" data-bs-interval="2000">
+          <div class="overlay"></div>
+          <img src="{{asset('smart-labs-assets/img/bg/smatassu2.png')}}" class="d-block w-100 img-block" alt="..."
+            style="border-radius: 0rem;">
+
+        </div>
+      </div>
+      <button class="carousel-control-prev hvr-forward" type="button" data-bs-target="#carouselExampleDark3"
+        data-bs-slide="prev">
+        <span class="fa-solid fa-arrow-left fa-2xl link-white " aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next hvr-backward" type="button" data-bs-target="#carouselExampleDark3"
+        data-bs-slide="next">
+        <span class="fa-solid fa-arrow-right fa-2xl link-white " aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+
+
+    </div>
+
+    <div class="py-2 bg-dark"></div>
+
+
+
+
+    <div class="">
+      <figure class="text-center my-4 container-fluid ">
+
+        <div class="ld ld-float-ltr-in">
+          <span class="d-flex justify-content-center">
+            <p class=" resp-title text-dark me-2" style="font-family:Poppins;font-weight:700;">SMART </p>
+            <p class="resp-title text-danger" style="font-family:Poppins,sans-serif;font-weight:300;"> LABS</p>
+          </span>
+          <p class=" resp-title text-danger"
+            style="font-family:Poppins,sans-serif;font-weight:300;margin-top: -1.5rem;">
+            ASSURANCES</p>
+        </div>
+        <div class="mb-4 mx-auto row-col-5 py-auto row d-flex justify-content-center">
+
+          <!-- Gradient divider -->
+          <div class="col-2 ms-n6">
+            <hr>
+          </div>
+          <i class="fa-solid fa-certificate my-auto col-1 d-flex justify-content-center "></i>
+          <div class="col-2 me-n6">
+            <hr>
+          </div>
+
+        </div>
+        <div class=" mx-md-2 mx-lg-5 row">
+          <h5 class="col-lg-9 mx-auto">
+            Smartlabs Assu est une plateforme qui a pour but de faciliter l'accessibiliter aux differents services
+            qu'offres les assurances du benin. Grace a notre plateforme soyez informer en temp reele sur les nouvelles
+            offres
+            ou mise a jours des assurances aux quelles vous souhaiter souscrire.
+
+          </h5>
+          <div>
+      </figure>
+
+
+
+    </div>
+    <div class=" bg-danger row px-5 mx-0 py-3 mb-4">
+      <div class="h5 d-flex justify-content-start col-6 my-auto fm-poppins fw-bold text-white">Nos
+        assurances</div>
+      <div class="col-6 d-flex justify-content-end"><button
+          class="btn btext-dark btn-sm text-wrap bg-white fw-bold hvr-icon-forward">Voir toutes <i
+            class=" hvr-icon fa-solid fa-arrow-right py-auto"></i></button></div>
+
+    </div>
+    <h2 class="fw-bold fs-8 mb-0 text-center mt-4">Les assurances abonnes a notre plateforme</h2>
+    <div class="mb-4 mx-auto row-col-5 py-auto row d-flex justify-content-center">
+
+      <!-- Gradient divider -->
+      <div class="col-2 ms-n6">
+        <hr>
+      </div>
+      <i class="fa-solid fa-certificate my-auto col-1 d-flex justify-content-center "></i>
+      <div class="col-2 me-n6">
+        <hr>
+      </div>
+
+    </div>
+    <div class="custumer-slide mx-auto mt-5 mb-5">
+
+
+
+
+      <div class=" rounded-3 csm-slide mx-2">
+        <div class="card profile-card-2" style="">
+          <div class="card-img-block border-bottom border-dark border-4">
+            <img class="img-fluid " src="{{asset('smart-labs-assets/img/bg/smatassu2.jpg')}}" alt="Card image cap">
+          </div>
+          <div class="card-body text-center resp-text">
+            <img src="{{asset('smart-labs-assets/img/logo3.jpg')}}" alt="profile-image" class="profile img-fluid" />
+            <h5 class="resp-text mt-4 text-dark">SmartLabs Assurance</h5>
+            <p class="resp-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <div class="icon-block mb-1 d-flex justify-content-center resp-text flex-center">
+              <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#"> <i class="fa-brands fa-twitter"></i></a>
+              <a href="#"> <i class="fa-brands fa-google"></i></a>
+              <a href="#"> <i class="fa-solid fa-plus"></i></a>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+      <div class=" rounded-3 csm-slide mx-2">
+        <div class="card profile-card-2" style="">
+          <div class="card-img-block border-bottom border-dark border-4">
+            <img class="img-fluid " src="{{asset('smart-labs-assets/img/bg/smatassu2.jpg')}}" alt="Card image cap">
+          </div>
+          <div class="card-body text-center resp-text">
+            <img src="{{asset('smart-labs-assets/img/logo3.jpg')}}" alt="profile-image" class="profile img-fluid" />
+            <h5 class="resp-text mt-4 text-dark">SmartLabs Assurance</h5>
+            <p class="resp-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <div class="icon-block mb-1 d-flex justify-content-center resp-text flex-center">
+              <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#"> <i class="fa-brands fa-twitter"></i></a>
+              <a href="#"> <i class="fa-brands fa-google"></i></a>
+              <a href="#"> <i class="fa-solid fa-plus"></i></a>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+      <div class=" rounded-3 csm-slide mx-2">
+        <div class="card profile-card-2" style="">
+          <div class="card-img-block border-bottom border-dark border-4">
+            <img class="img-fluid " src="{{asset('smart-labs-assets/img/bg/smatassu2.jpg')}}" alt="Card image cap">
+          </div>
+          <div class="card-body text-center resp-text">
+            <img src="{{asset('smart-labs-assets/img/logo3.jpg')}}" alt="profile-image" class="profile img-fluid" />
+            <h5 class="resp-text mt-4 text-dark">SmartLabs Assurance</h5>
+            <p class="resp-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <div class="icon-block mb-1 d-flex justify-content-center resp-text flex-center">
+              <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#"> <i class="fa-brands fa-twitter"></i></a>
+              <a href="#"> <i class="fa-brands fa-google"></i></a>
+              <a href="#"> <i class="fa-solid fa-plus"></i></a>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+      <div class=" rounded-3 csm-slide mx-2">
+        <div class="card profile-card-2" style="">
+          <div class="card-img-block border-bottom border-dark border-4">
+            <img class="img-fluid " src="{{asset('smart-labs-assets/img/bg/smatassu2.jpg')}}" alt="Card image cap">
+          </div>
+          <div class="card-body text-center resp-text">
+            <img src="{{asset('smart-labs-assets/img/logo3.jpg')}}" alt="profile-image" class="profile img-fluid" />
+            <h5 class="resp-text mt-4 text-dark">SmartLabs Assurance</h5>
+            <p class="resp-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <div class="icon-block mb-1 d-flex justify-content-center resp-text flex-center">
+              <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#"> <i class="fa-brands fa-twitter"></i></a>
+              <a href="#"> <i class="fa-brands fa-google"></i></a>
+              <a href="#"> <i class="fa-solid fa-plus"></i></a>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+      <div class=" rounded-3 csm-slide mx-2">
+        <div class="card profile-card-2" style="">
+          <div class="card-img-block border-bottom border-dark border-4">
+            <img class="img-fluid " src="{{asset('smart-labs-assets/img/bg/smatassu2.jpg')}}" alt="Card image cap">
+          </div>
+          <div class="card-body text-center resp-text">
+            <img src="{{asset('smart-labs-assets/img/logo3.jpg')}}" alt="profile-image" class="profile img-fluid" />
+            <h5 class="resp-text mt-4 text-dark">SmartLabs Assurance</h5>
+            <p class="resp-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <div class="icon-block mb-1 d-flex justify-content-center resp-text flex-center">
+              <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#"> <i class="fa-brands fa-twitter"></i></a>
+              <a href="#"> <i class="fa-brands fa-google"></i></a>
+              <a href="#"> <i class="fa-solid fa-plus"></i></a>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+    <section class="">
+      <div class=" bg-danger row px-5 mx-0 py-3 mb-4">
+        <div class="h5 d-flex justify-content-center  my-auto fw-bold fm-poppins text-white">Pourquoi nous choisir ?
+        </div>
+
+      </div>
+      <div class="mx-4 fs-5">
+        Smartlabs Assu est une plateforme qui a pour but de faciliter l'accessibiliter aux differents services
+        qu'offres les assurances du benin. Grace a notre plateforme soyez informer en temp reele sur les nouvelles
+        offres
+        ou mise a jours des assurances auxquelles vous souhaiter souscrire.
+      </div>
+      <h2 class="fw-bold fs-8 mb-0 text-center mt-4">Nos atouts</h2>
+      <div class="mb-4 mx-auto row-col-5 py-auto row d-flex justify-content-center">
+
+        <!-- Gradient divider -->
+        <div class="col-2 ms-n6">
+          <hr>
+        </div>
+        <i class="fa-solid fa-certificate my-auto col-1 d-flex justify-content-center "></i>
+        <div class="col-2 me-n6">
+          <hr>
+        </div>
+
+      </div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5 mx-5 fm-poppins mb-5">
+        <div class="col d-flex align-items-start">
+          <i class="bi text-muted flex-shrink-0 me-3 fa-solid fa-user p-4 bg-secondary bg-opacity-25 rounded-3"
+            width="1.75em" height="1.75em"></i>
+          <div>
+            <h6 class="fw-bold fs-8 mb-0">Featured title</h6>
+            <p>Paragraph of text beneath the heading to explain the heading.</p>
+          </div>
+        </div>
+        <div class="col d-flex align-items-start">
+          <i class="bi text-muted flex-shrink-0 me-3 fa-solid fa-user p-4 bg-secondary bg-opacity-25 rounded-3"
+            width="1.75em" height="1.75em"></i>
+          <div>
+            <h6 class="fw-bold fs-8 mb-0">Featured title</h6>
+            <p>Paragraph of text beneath the heading to explain the heading.</p>
+          </div>
+        </div>
+        <div class="col d-flex align-items-start">
+          <i class="bi text-muted flex-shrink-0 me-3 fa-solid fa-user p-4 bg-secondary bg-opacity-25 rounded-3"
+            width="1.75em" height="1.75em"></i>
+          <div>
+            <h6 class="fw-bold fs-8 mb-0">Featured title</h6>
+            <p>Paragraph of text beneath the heading to explain the heading.</p>
+          </div>
+        </div>
+        <div class="col d-flex align-items-start">
+          <i class="bi text-muted flex-shrink-0 me-3 fa-solid fa-user p-4 bg-secondary bg-opacity-25 rounded-3"
+            width="1.75em" height="1.75em"></i>
+          <div>
+            <h6 class="fw-bold fs-8 mb-0">Featured title</h6>
+            <p>Paragraph of text beneath the heading to explain the heading.</p>
+          </div>
+        </div>
+        <div class="col d-flex align-items-start">
+          <i class="bi text-muted flex-shrink-0 me-3 fa-solid fa-user p-4 bg-secondary bg-opacity-25 rounded-3"
+            width="1.75em" height="1.75em"></i>
+          <div>
+            <h6 class="fw-bold fs-8 mb-0">Featured title</h6>
+            <p>Paragraph of text beneath the heading to explain the heading.</p>
+          </div>
+        </div>
+        <div class="col d-flex align-items-start">
+          <i class="bi text-muted flex-shrink-0 me-3 fa-solid fa-user p-4 bg-secondary bg-opacity-25 rounded-3"
+            width="1.75em" height="1.75em"></i>
+          <div>
+            <h6 class="fw-bold fs-8 mb-0">Featured title</h6>
+            <p>Paragraph of text beneath the heading to explain the heading.</p>
+          </div>
+        </div>
+        <div class="col d-flex align-items-start">
+          <i class="bi text-muted flex-shrink-0 me-3 fa-solid fa-user p-4 bg-secondary bg-opacity-25 rounded-3"
+            width="1.75em" height="1.75em"></i>
+          <div>
+            <h6 class="fw-bold fs-8 mb-0">Featured title</h6>
+            <p>Paragraph of text beneath the heading to explain the heading.</p>
+          </div>
+        </div>
+        <div class="col d-flex align-items-start">
+          <i class="bi text-muted flex-shrink-0 me-3 fa-solid fa-user p-4 bg-secondary bg-opacity-25 rounded-3"
+            width="1.75em" height="1.75em"></i>
+          <div>
+            <h6 class="fw-bold fs-8 mb-0">Featured title</h6>
+            <p>Paragraph of text beneath the heading to explain the heading.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <div class="top-section">
+      <div class=" bg-danger row px-5 mx-0 py-3 mb-4">
+        <div class="h5 d-flex justify-content-start col-6 my-auto fm-poppins fw-bold text-white">Les actualites</div>
+        <div class="col-6 d-flex justify-content-end"><button
+            class="btn btn-sm btext-dark bg-white fw-bold hvr-icon-forward">Voir toutes <i
+              class=" hvr-icon fa-solid fa-arrow-right py-auto"></i></button></div>
+      </div>
+    </div>
+    <h2 class="fw-bold fs-8 mb-0 text-center mt-4">Les nouveautes et mise a jour recentes</h2>
+    <div class="mb-4 mx-auto row-col-5 py-auto row d-flex justify-content-center">
+
+      <!-- Gradient divider -->
+      <div class="col-2 ms-n6">
+        <hr>
+      </div>
+      <i class="fa-solid fa-certificate my-auto col-1 d-flex justify-content-center "></i>
+      <div class="col-2 me-n6">
+        <hr>
+      </div>
+
+    </div>
+    <div class="infos mx-5">
+
+      <div class="card info-items mx-2 my-2">
+        <div class="card-body">
+          <div class="bg-dark rounded-3">
+
+            <a href="#" class="btn btn-dark btn-md position-absolute start-0 top-0 pe-3 "
+              style="border-radius: 0rem 0rem 2rem 0rem; z-index:1000">New</a>
+            <img src="{{asset('smart-labs-assets/img/IMG_0727.jpeg')}}" alt="" class="mx-auto hvr-shrink"
+              style="width: 100%;max-height: 75%;">
+
+          </div>
+          <div>
+            <p class="h6 ms- pt-2" style="font-size: 0.9rem;"><i class="fa-solid fa-clock  "></i><b
+                style="font-size: 0.9rem;" class="ms-1">15 Avril 2018: </b>Accord de partenariat avec le CFP-CIFORQ </p>
+            <p class=" h6 ms-1" style="font-size: 0.80rem; font-family: Poppins,sans-serif;font-weight: 700;">License
+              Benininfo 2012 seme city</p>
+            <a href="#" class="btn btn-danger btn-md ">Voir plus</a>
+          </div>
+        </div>
+      </div>
+      <div class="card info-items mx-2 my-2">
+        <div class="card-body">
+          <div class="bg-dark rounded-3">
+
+            <a href="#" class="btn btn-dark btn-md position-absolute start-0 top-0 pe-3 "
+              style="border-radius: 0rem 0rem 2rem 0rem; z-index:1000">New</a>
+            <img src="{{asset('smart-labs-assets/img/IMG_0727.jpeg')}}" alt="" class="mx-auto hvr-shrink"
+              style="width: 100%;max-height: 75%;">
+
+          </div>
+          <div>
+            <p class="h6 ms- pt-2" style="font-size: 0.9rem;"><i class="fa-solid fa-clock  "></i><b
+                style="font-size: 0.9rem;" class="ms-1">15 Avril 2018: </b>Accord de partenariat avec le CFP-CIFORQ </p>
+            <p class=" h6 ms-1" style="font-size: 0.80rem; font-family: Poppins,sans-serif;font-weight: 700;">License
+              Benininfo 2012 seme city</p>
+            <a href="#" class="btn btn-danger btn-md ">Voir plus</a>
+          </div>
+        </div>
+      </div>
+      <div class="card info-items mx-2 my-2">
+        <div class="card-body">
+          <div class="bg-dark rounded-3">
+
+            <a href="#" class="btn btn-dark btn-md position-absolute start-0 top-0 pe-3 "
+              style="border-radius: 0rem 0rem 2rem 0rem; z-index:1000">New</a>
+            <img src="{{asset('smart-labs-assets/img/IMG_0727.jpeg')}}" alt="" class="mx-auto hvr-shrink"
+              style="width: 100%;max-height: 75%;">
+
+          </div>
+          <div>
+            <p class="h6 ms- pt-2" style="font-size: 0.9rem;"><i class="fa-solid fa-clock  "></i><b
+                style="font-size: 0.9rem;" class="ms-1">15 Avril 2018: </b>Accord de partenariat avec le CFP-CIFORQ </p>
+            <p class=" h6 ms-1" style="font-size: 0.80rem; font-family: Poppins,sans-serif;font-weight: 700;">License
+              Benininfo 2012 seme city</p>
+            <a href="#" class="btn btn-danger btn-md ">Voir plus</a>
+          </div>
+        </div>
+      </div>
+      <div class="card info-items mx-2 my-2">
+        <div class="card-body">
+          <div class="bg-dark rounded-3">
+
+            <a href="#" class="btn btn-dark btn-md position-absolute start-0 top-0 pe-3 "
+              style="border-radius: 0rem 0rem 2rem 0rem; z-index:1000">New</a>
+            <img src="{{asset('smart-labs-assets/img/IMG_0727.jpeg')}}" alt="" class="mx-auto hvr-shrink"
+              style="width: 100%;max-height: 75%;">
+
+          </div>
+          <div>
+            <p class="h6 ms- pt-2" style="font-size: 0.9rem;"><i class="fa-solid fa-clock  "></i><b
+                style="font-size: 0.9rem;" class="ms-1">15 Avril 2018: </b>Accord de partenariat avec le CFP-CIFORQ </p>
+            <p class=" h6 ms-1" style="font-size: 0.80rem; font-family: Poppins,sans-serif;font-weight: 700;">License
+              Benininfo 2012 seme city</p>
+            <a href="#" class="btn btn-danger btn-md ">Voir plus</a>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+
+
+  </main>
+  {% endblock %}

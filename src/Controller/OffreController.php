@@ -2,11 +2,13 @@
 
 namespace App\Controller;
 
-use App\Entity\Caracteristiques;
 use App\Entity\Offres;
+use App\Entity\Caracteristiques;
+use App\Repository\OffresRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class OffreController extends AbstractController
@@ -16,6 +18,7 @@ class OffreController extends AbstractController
     {
         $this -> entityManager= $entityManager;
     }
+    
 
     #[Route('/offre', name: 'offre')]
     public function index(): Response
@@ -28,8 +31,9 @@ class OffreController extends AbstractController
         ]);
 
 
-       
     }
+
+
 
     #[Route('/offre/{slug}', name: 'offre_single')]
     public function show($slug): Response

@@ -1,6 +1,0 @@
-easy_admin:
-    entities:
-        Offres:
-            class: App\Entity\Offres
-            list:
-              dql_filter: 'entity.id = $this->getUser()->getId()'

@@ -1,0 +1,33 @@
+                           {% extends "base.html.twig" %}
+                           
+                            {% for offres in offresofagency  %}
+                            <div class="row border-bottom shadow border-top py-1  mt-3 bg-danger"
+                                style="border-radius: 15px 15px 15px 15px;box-shadow: 1.5px 1.5px 1.5px 1.5px #00000014;">
+
+                                <div class="col-9 my-auto">
+                                    <small>
+                                        <span class="badge bg-white text-dark">   {{offres.NomOffre}}</span></br>
+                                        <span style="font-family:poppins,sans-serif ;" class="text-white">{{offres.categoriestooffres.NomCat}}
+                                        
+                                        </span></br>
+                                        <div class="d-flex ">
+                                            <span class="badge bg-danger"> Souscrit le : <span
+                                                    class="badge bg-dark"> {{offres.PrixOffres}}</span></span>
+                                            <span class="badge bg-danger"> Statut <span
+                                                    class="badge bg-dark">Actif</span></span>
+                                        </div>
+                                    </small>
+                                </div>
+
+                                <div class="col-3 my-auto ">
+                                    <div class="d-flex justify-content-end">
+                                        <i class="fa-solid fa-ellipsis-vertical text-white py-1 bg-dark px-2 rounded-3 mx-1"
+                                            role="button" id="brandlink"></i>
+                                        <i class="fa-solid fas fa-plus text-white p-1 mx-1 bg-dark rounded-3 "
+                                            role="button" id="brandlink"></i>
+
+                                    </div>
+                                </div>
+                            </div>
+
+{% endfor %} 

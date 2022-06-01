@@ -13,10 +13,9 @@ use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Menu\SubMenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
-use Symfony\Config\Doctrine\Orm\EntityManagerConfig\DqlConfig;
+
 
 class DashboardController extends AbstractDashboardController
 {
@@ -41,28 +40,63 @@ class DashboardController extends AbstractDashboardController
         //
         // return $this->render('some/path/my-dashboard.html.twig');
 
-            }
+    }
 
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Smartlabs Assu');
+            ->setTitle('Smartlabs Assurances');
     }
+
+
 
     public function configureMenuItems(): iterable
     {
+        //dashboard section
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::subMenu('Les offres' ,'fab fa-buffer')->setSubItems
-        ([
-                MenuItem::linkToCrud('Ajouter', 'fab fa-plus', Offres::class)
-                ->setAction(Crud::PAGE_NEW),
-                MenuItem::linkToCrud('Voir', 'fas fa-eye', Offres::class)
-                ->setAction(Crud::PAGE_INDEX),      
-        ]); 
-        yield MenuItem::linkToCrud('Les Categories', 'fas fa-box-archive', Categorie::class);
-        yield MenuItem::linkToCrud('Les Carateristiques', 'fas fa-paste', Caracteristiques::class);
-        yield MenuItem::subMenu('Clients et agences' ,'fas fa-list')->setSubItems([
-            MenuItem::linkToCrud('Les clients', 'fas fa-user-group', Client::class),
-            MenuItem::linkToCrud('Les Agences', 'fas fa-building-circle-check', Agence::class)
-        ]);}
+        //offres sections
+        yield MenuItem::section('Offres','fas fa-sections');
+        //offrs menu
+        yield MenuItem::subMenu('Les offres' ,'fab fa-buffer')
+            ->setSubItems([
+                    MenuItem::linkToCrud('Ajouter', 'fab fa-plus', Offres::class)
+                    ->setAction(Crud::PAGE_NEW),
+                    MenuItem::linkToCrud('Voir', 'fas fa-eye', Offres::class)
+                    ->setAction(Crud::PAGE_INDEX),      
+            ]);
+        //categorie menu
+        yield MenuItem::subMenu('Les categories' ,'fas fa-box-archive')
+            ->setSubItems([
+                    MenuItem::linkToCrud('Ajouter', 'fab fa-plus', Categorie::class)
+                    ->setAction(Crud::PAGE_NEW),
+                    MenuItem::linkToCrud('Voir', 'fas fa-eye', Categorie::class)
+                    ->setAction(Crud::PAGE_INDEX),      
+            ]);
+        //caracteristiques menu
+        yield MenuItem::subMenu('Les caractéristiques' ,'fas fa-paste')
+            ->setSubItems([
+                    MenuItem::linkToCrud('Ajouter', 'fab fa-plus', Caracteristiques::class)
+                    ->setAction(Crud::PAGE_NEW),
+                    MenuItem::linkToCrud('Voir', 'fas fa-eye', Caracteristiques::class)
+                    ->setAction(Crud::PAGE_INDEX),      
+            ]); 
+        //utilisateurs section
+        yield MenuItem::section('Utilisateurs','fas fa-sections');
+        //agence menu
+        yield MenuItem::subMenu('Les agences' ,'fas fa-building-shield')
+            ->setSubItems([
+                    MenuItem::linkToCrud('Ajouter', 'fab fa-plus', Agence::class)
+                    ->setAction(Crud::PAGE_NEW),
+                    MenuItem::linkToCrud('Voir', 'fas fa-eye', Agence::class)
+        
+            ]); 
+        //clients menu
+        yield MenuItem::subMenu('Les clients' ,'fas fa-user-group')
+            ->setSubItems([
+                    MenuItem::linkToCrud('Ajouter', 'fab fa-plus', Client::class)
+                    ->setAction(Crud::PAGE_NEW),
+                    MenuItem::linkToCrud('Voir', 'fas fa-eye', Client::class)
+                    ->setAction(Crud::PAGE_INDEX),      
+            ]);
+    }
 }

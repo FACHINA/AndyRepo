@@ -2,9 +2,12 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Agence;
 use App\Entity\Offres;
 use Doctrine\ORM\QueryBuilder;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
@@ -19,7 +22,12 @@ class OffresCrudController extends AbstractCrudController
         return Offres::class;
     }
 
-
+    public function configureActions(Actions $actions): Actions
+    {
+        return $actions
+       
+            ->add(Crud::PAGE_INDEX, Action::DETAIL);
+    }
 
     //protected function createListQueryBuilder($entityClass, $sortDirection, $sortField = null, $dqlFilter = null);  
 
@@ -35,6 +43,7 @@ class OffresCrudController extends AbstractCrudController
                     ->where('entity.id = :user_id')
                     ->setParameter('user_id',$this->getUser()->getId());
                 })
+               
                 ->setRequired(true),
             AssociationField::new('Agence')
                 ->setPermission('ROLE_ADMIN'),
@@ -54,6 +63,35 @@ class OffresCrudController extends AbstractCrudController
             
         ];
     }
+
+    /**@var QueryBuilder $result */
+//    protected function createListQueryBuilder ($entityClass, $sortDirection, $sortField = null, $dqlFilter = null){
+//     $result = parent::createListQueryBuilder($entityClass, $sortDirection, $sortField, $dqlFilter);
+//      if (method_exists($entityClass,'getUser')){
+//          $result->andWhere('entity.Agence = :user_id');
+//          $result->setParameter('user_id' , $this->getUser()->getId());
+//      }
+//        return $result ;
+
+ //   }
+
+ 
+//ublic function createIndexQueryBuilder(SearchDto $searchDto, EntityDto $entityDto, FieldCollection $fields, FilterCollection $filters): QueryBuilder
+//
+//  parent::createIndexQueryBuilder($searchDto, $entityDto, $fields, $filters);
+//  $qb = $this->entityManager->get(OffresRepository::class);
+//  $qb
+//   ->createQueryBuilder($searchDto, $entityDto, $fields, $filters);
+//
+//   if (in_array('ROLE_AGENCE', $this->getUser()->getRoles())) {
+//      $qb->andWhere('entity.Agence = :user');
+//   } 
+//
+//   $qb->setParameter('user', $this->getUser()->getId());
+//
+//   return $qb;
+//
+
 
    
 }

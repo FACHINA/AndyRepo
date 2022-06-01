@@ -98,5 +98,8 @@ class DashboardController extends AbstractDashboardController
                     MenuItem::linkToCrud('Voir', 'fas fa-eye', Client::class)
                     ->setAction(Crud::PAGE_INDEX),      
             ]);
+        yield MenuItem::section('Retour a l\'acceuil','fas fa-sections');
+        yield MenuItem::linkToRoute('Retour','fas fa-retweet','acceuil');
+
     }
 }

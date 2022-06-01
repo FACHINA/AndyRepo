@@ -1,16 +1,48 @@
-{% extends 'base.html.twig' %}
+{% extends "base.html.twig" %}
+{% block sidebar %}  
+{% if app.user %}
+    
+ 
+ {% if is_granted('ROLE_AGENCE') %}
 
+
+    
+                    
+                         {{ render(controller( 'App\\Controller\\OffresCreatedController::findagency')) }}
+{% endif %}
+{% endif %}  {% endblock %}
 
 {% block content %}
-<div class="d-flex justify-content-start ms-4">
-    <a class="fw-bold fm-poppins mb-0  h5 mt-4 link-secondary text-decoration-none small" href="{{path('app_agence')}}">Agence</a><span class="fw-bold fm-poppins mb-0 text-muted h5 mt-4 text-decoration-none lh-sm opacity-50 small"> <i class="fas fa-angle-right mx-2 my-auto"></i> </span><a class="fw-bold fm-poppins mb-0 link-secondary h5 mt-4 text-decoration-none small">NomAgence</a>
-</div>
-<div class="row p-2 my-4 mx-4">
-<div class="col-md-5 p-3">
-    <img src="{{asset('smart-labs-assets/img/bg/smatassu.png')}}" alt="" class="img-fluid">
-</div>
-<div class="col-md-7 p-3"></div>
-</div>
-    <div style="margin-bottom:15rem;"></div>
 
+
+  
+   <div class="mx-auto px-auto row d-flex justify-content-center  wrap">
+{% for agence in agence %}
+    
+
+      <div class=" rounded-3 csm-slide mx-1 my-1 col-md-5 col-lg-3 align-self-center">
+        <div class="card profile-card-2" style="border-radius:4rem;">
+          <div class="card-img-block border-bottom border-dark border-4">
+            <img class="img-fluid " src="{{asset('smart-labs-assets/img/bg/smatassu.png')}}" alt="Card image cap">
+          </div>
+          <div class="card-body text-center resp-text">
+            <img src="{{asset('smart-labs-assets/img/logo3.jpg')}}" alt="profile-image" class="profile img-fluid" />
+            <h5 class="resp-text mt-4 text-dark">{{agence.NomAgence}}</h5>
+            <p class="resp-text">{{agence.Description}}</p>
+            <div class="icon-block mb-1 d-flex justify-content-center resp-text flex-center bg-danger p-1" style="border-radius:1rem;">
+              <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#"> <i class="fa-brands fa-twitter"></i></a>
+              <a href="#"> <i class="fa-brands fa-google"></i></a>
+              <a href="#"> <i class="fa-solid fa-plus"></i></a>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+{% endfor %}
+</div>
+<div style="margin-bottom:15em;"></div>
 {% endblock %}
+
+

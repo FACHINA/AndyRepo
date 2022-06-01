@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Agence;
 use App\Entity\Offres;
+use App\Repository\OffresRepository;
 use Doctrine\ORM\QueryBuilder;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
@@ -43,8 +44,13 @@ class OffresCrudController extends AbstractCrudController
                     ->where('entity.id = :user_id')
                     ->setParameter('user_id',$this->getUser()->getId());
                 })
+
+     
                
                 ->setRequired(true),
+                
+               
+                
             AssociationField::new('Agence')
                 ->setPermission('ROLE_ADMIN'),
             AssociationField::new('categoriestooffres','Categorie')

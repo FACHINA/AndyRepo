@@ -1,4 +1,7 @@
 {% extends 'base.html.twig' %}
+{% block sidebar %}                          
+                         {{ render(controller( 'App\\Controller\\OffresCreatedController::findagency')) }}
+{% endblock %}
 {% block content %}
 <div>
     <h2 class="fw-bold fm-poppins mb-0 text-center text-muted h1 mt-4">Nos offres</h2>

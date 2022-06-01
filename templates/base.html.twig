@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SmartLabs-Assu</title>
     {% block otherlink %}
-        
+
     {% endblock %}
     <link rel="icon" href="{{asset('smart-labs-assets/img/ssa-icon.ico')}}">
     <link rel="stylesheet" href="{{asset('smart-labs-assets/css/smartlabs.css')}}">
@@ -27,7 +27,7 @@
 <body>
 
 
-{#  <div class="toast-container position-absolute">
+    {#  <div class="toast-container position-absolute">
  {% for message in app.flashes('notice') %}
     <div class="toast " role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
@@ -43,9 +43,9 @@
   </div>
   
 #}
-   
 
-  
+
+
     <!-- Header-->
     <!-- header-top-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary container-fluid bg-danger my-0 py-0">
@@ -92,10 +92,10 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark  container-fluid py-2">
             <div class="container-fluid d-flex ">
                 <!-- <a href="#" class="navbar-brand mx-0 px-1" style="border-bottom: 0.4rem solid white;border-top: 0.4rem solid white;border-left: 0.4rem solid whitesmoke;">SmartLabs </a><a  class="navbar-brand px-2 mx-0" style="color: #0d6efd;background-color: white;border-bottom: 0.4rem solid white;border-top: 0.4rem solid white;">Assu</a>-->
-            <a href="{{path('acceuil')}}">
-                <img src="{{asset('smart-labs-assets/img/logo-sm-4.png')}}"
-                    class="navbar-brand img-resp justify-content-start" alt="">
-                    </a>
+                <a href="{{path('acceuil')}}">
+                    <img src="{{asset('smart-labs-assets/img/logo-sm-4.png')}}"
+                        class="navbar-brand img-resp justify-content-start" alt="">
+                </a>
                 <div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
 
                     <form class="" style="margin-left:4rem;">
@@ -125,10 +125,10 @@
                         <p class="m-0 p-0 small">Souscription</p>
                     </button>
 
-                    <button class="btn d-none d-lg-block  rounded-2 text-white" type="button">
-                        <i class="fa-solid fa-star-half-stroke"></i>
-                        <p class="m-0 p-0 small">Favoris</p>
-                    </button>
+                    <a class="btn d-none d-lg-block  rounded-2 text-white" type="button" href="#">
+                        <i class="fa-solid fa-box-archive"></i>
+                        <p class="m-0 p-0 small">Vos offres</p>
+                    </a>
                     <div class="dropdown  d-none d-lg-block px-3 align-middle my-auto">
                         {% if app.user %}
                         <a href="#" class="align-middle text-white text-decoration-none " id="dropdownUser2"
@@ -145,7 +145,7 @@
                         {% else %}
                         <a class="btn btn-sm btn-danger" href="{{path('app_login')}}">Connexion Requise !!<a>
 
-                             
+
 
 
 
@@ -201,7 +201,7 @@
                                     href="{{path('acceuil')}}">Acceuil</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" style=" font-size: 0.9rem;" href="#">Assurances</a>
+                                <a class="nav-link" style=" font-size: 0.9rem;" href="{{path('app_agence')}}">Agences</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" style=" font-size: 0.9rem;" href="{{path('offre')}}">Les offres</a>
@@ -268,8 +268,8 @@
                 <div class="flex-shrink-0 row  bg-dark text-white border-white">
                     <a href="/" class="d-flex align-items-center   mb-1 link-dark text-decoration-none ">
 
-                        <span class="fs-5 fw-semibold text-white mx-auto"><img src="{{asset('smart-labs-assets/img/logo-sm-4.png')}}" alt=""
-                                width="100"></span>
+                        <span class="fs-5 fw-semibold text-white mx-auto"><img
+                                src="{{asset('smart-labs-assets/img/logo-sm-4.png')}}" alt="" width="100"></span>
 
                     </a>
 
@@ -282,14 +282,20 @@
 
                         </li>
                         <li class="my-1  rounded-3">
-                            <a class="dropdown-item3  align-items-center rounded collapsed " href="#">
-                                Assurances
+                            <a class="dropdown-item3  align-items-center rounded collapsed " href="{{path('app_agence')}}">
+                                Agences
                             </a>
 
                         </li>
                         <li class="my-1  rounded-3 ">
                             <a class="dropdown-item3  align-items-center rounded collapsed " href="{{path('offre')}}">
                                 Les offres
+                            </a>
+
+                        </li>
+                        <li class="my-1  rounded-3 ">
+                            <a class="dropdown-item3  align-items-center rounded collapsed " href="#">
+                                Vos offres
                             </a>
 
                         </li>
@@ -367,8 +373,8 @@
                 <hr class="py-1 rounded-3 bg-white">
                 <ul class="list-unstyled mt-4 text-center">
                     <li class="my-1  rounded-3 ">
-                        <a class="dropdown-item3   d-flex justify-content-between rounded collapsed " href="#">
-                            <span>Carte</span> <i class="fas fa-cart-shopping my-auto"></i>
+                        <a class="dropdown-item3   d-flex justify-content-between rounded collapsed " href="{{path('admin')}}">
+                            <span>Dashboard</span> <i class="fas fa-cart-shopping my-auto"></i>
                         </a>
 
                     </li>
@@ -440,8 +446,8 @@
                 <div class="flex-shrink-0 bg-transparent align-content-center">
                     <span class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none  ">
                         <div class="offcanvas-body overflow-hidden bg-transparent ">
-
-                            <div class="row border-bottom shadow border-top py-1  mt-3 bg-danger"
+{#
+                           <div class="row border-bottom shadow border-top py-1  mt-3 bg-danger"
                                 style="border-radius: 15px 15px 15px 15px;box-shadow: 1.5px 1.5px 1.5px 1.5px #00000014;">
 
                                 <div class="col-9 my-auto">
@@ -471,209 +477,17 @@
                                     </div>
 
                                 </div>
-                            </div>
-                            <div class="collapse bg-dark rounded-3 " id="menucollapseoffresid">
+                           </div>
+                           <div class="collapse bg-dark rounded-3 " id="menucollapseoffresid">
                                 <div class="d-flex justify-content-around">
                                     <btn class="btn btn-danger rounded-3 btn-sm m-2">Voir les details</btn>
                                     <btn class="btn btn-danger rounded-3 btn-sm m-2">Utilisation</btn>
                                 </div>
-                            </div>
-                            <div class="row border-bottom shadow border-top py-1  mt-3 bg-danger"
-                                style="border-radius: 15px 15px 15px 15px;box-shadow: 1.5px 1.5px 1.5px 1.5px #00000014;">
-
-                                <div class="col-9 my-auto">
-                                    <small>
-                                        <span class="badge bg-white text-dark"> Tade Assurances</span></br>
-                                        <span style="font-family:poppins,sans-serif ;" class="text-white"> Assurance vie
-                                            (Gankpo)
-                                        </span></br>
-                                        <div class="d-flex ">
-                                            <span class="badge bg-danger"> Souscrit le : <span
-                                                    class="badge bg-dark">29/Aout/2005</span></span>
-                                            <span class="badge bg-danger"> Prend fin le : <span
-                                                    class="badge bg-dark">29/Aout/2005</span></span>
-                                        </div>
-                                    </small>
-                                </div>
-
-                                <div class="col-3 my-auto ">
-                                    <div class="d-flex justify-content-end">
-                                        <i class="fa-solid fa-ellipsis-vertical text-white py-1 bg-dark px-2 rounded-3 mx-1"
-                                            role="button" id="brandlink"></i>
-                                        <i class="fa-solid fas fa-plus text-white p-1 mx-1 bg-dark rounded-3 "
-                                            role="button" id="brandlink"></i>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row border-bottom shadow border-top py-1  mt-3 bg-danger"
-                                style="border-radius: 15px 15px 15px 15px;box-shadow: 1.5px 1.5px 1.5px 1.5px #00000014;">
-
-                                <div class="col-9 my-auto">
-                                    <small>
-                                        <span class="badge bg-white text-dark"> Tade Assurances</span></br>
-                                        <span style="font-family:poppins,sans-serif ;" class="text-white"> Assurance vie
-                                            (Gankpo)
-                                        </span></br>
-                                        <div class="d-flex">
-                                            <span class="badge bg-danger"> Souscrit le : <span
-                                                    class="badge bg-dark">29/Aout/2005</span></span>
-                                            <span class="badge bg-danger"> Prend fin le : <span
-                                                    class="badge bg-dark">29/Aout/2005</span></span>
-                                        </div>
-                                    </small>
-                                </div>
-
-                                <div class="col-3 my-auto ">
-                                    <div class="d-flex justify-content-end">
-                                        <i class="fa-solid fa-ellipsis-vertical text-white py-1 bg-dark px-2 rounded-3 mx-1"
-                                            role="button" id="brandlink"></i>
-                                        <i class="fa-solid fas fa-plus text-white p-1 mx-1 bg-dark rounded-3 "
-                                            role="button" id="brandlink"></i>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row border-bottom shadow border-top py-1  mt-3 bg-danger"
-                                style="border-radius: 15px 15px 15px 15px;box-shadow: 1.5px 1.5px 1.5px 1.5px #00000014;">
-
-                                <div class="col-9 my-auto">
-                                    <small>
-                                        <span class="badge bg-white text-dark"> Tade Assurances</span></br>
-                                        <span style="font-family:poppins,sans-serif ;" class="text-white"> Assurance vie
-                                            (Gankpo)
-                                        </span></br>
-                                        <div class="d-flex">
-                                            <span class="badge bg-danger"> Souscrit le : <span
-                                                    class="badge bg-dark">29/Aout/2005</span></span>
-                                            <span class="badge bg-danger"> Prend fin le : <span
-                                                    class="badge bg-dark">29/Aout/2005</span></span>
-                                        </div>
-                                    </small>
-                                </div>
-
-                                <div class="col-3 my-auto ">
-                                    <div class="d-flex justify-content-end">
-                                        <i class="fa-solid fa-ellipsis-vertical text-white py-1 bg-dark px-2 rounded-3 mx-1"
-                                            role="button" id="brandlink"></i>
-                                        <i class="fa-solid fas fa-plus text-white p-1 mx-1 bg-dark rounded-3 "
-                                            role="button" id="brandlink"></i>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row border-bottom shadow border-top py-1  mt-3 bg-danger"
-                                style="border-radius: 15px 15px 15px 15px;box-shadow: 1.5px 1.5px 1.5px 1.5px #00000014;">
-
-                                <div class="col-9 my-auto">
-                                    <small>
-                                        <span class="badge bg-white text-dark"> Tade Assurances</span></br>
-                                        <span style="font-family:poppins,sans-serif ;" class="text-white"> Assurance vie
-                                            (Gankpo)
-                                        </span></br>
-                                        <div class="d-flex">
-                                            <span class="badge bg-danger"> Souscrit le : <span
-                                                    class="badge bg-dark">29/Aout/2005</span></span>
-                                            <span class="badge bg-danger"> Prend fin le : <span
-                                                    class="badge bg-dark">29/Aout/2005</span></span>
-                                        </div>
-                                    </small>
-                                </div>
-
-                                <div class="col-3 my-auto ">
-                                    <div class="d-flex justify-content-end">
-                                        <i class="fa-solid fa-ellipsis-vertical text-white py-1 bg-dark px-2 rounded-3 mx-1"
-                                            role="button" id="brandlink"></i>
-                                        <i class="fa-solid fas fa-plus text-white p-1 mx-1 bg-dark rounded-3 "
-                                            role="button" id="brandlink"></i>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row border-bottom shadow border-top py-1  mt-3 bg-danger"
-                                style="border-radius: 15px 15px 15px 15px;box-shadow: 1.5px 1.5px 1.5px 1.5px #00000014;">
-
-                                <div class="col-9 my-auto">
-                                    <small>
-                                        <span class="badge bg-white text-dark"> Tade Assurances</span></br>
-                                        <span style="font-family:poppins,sans-serif ;" class="text-white"> Assurance vie
-                                            (Gankpo)
-                                        </span></br>
-                                        <div class="d-flex">
-                                            <span class="badge bg-danger"> Souscrit le : <span
-                                                    class="badge bg-dark">29/Aout/2005</span></span>
-                                            <span class="badge bg-danger"> Prend fin le : <span
-                                                    class="badge bg-dark">29/Aout/2005</span></span>
-                                        </div>
-                                    </small>
-                                </div>
-
-                                <div class="col-3 my-auto ">
-                                    <div class="d-flex justify-content-end">
-                                        <i class="fa-solid fa-ellipsis-vertical text-white py-1 bg-dark px-2 rounded-3 mx-1"
-                                            role="button" id="brandlink"></i>
-                                        <i class="fa-solid fas fa-plus text-white p-1 mx-1 bg-dark rounded-3 "
-                                            role="button" id="brandlink"></i>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row border-bottom shadow border-top py-1  mt-3 bg-danger"
-                                style="border-radius: 15px 15px 15px 15px;box-shadow: 1.5px 1.5px 1.5px 1.5px #00000014;">
-
-                                <div class="col-9 my-auto">
-                                    <small>
-                                        <span class="badge bg-white text-dark"> Tade Assurances</span></br>
-                                        <span style="font-family:poppins,sans-serif ;" class="text-white"> Assurance vie
-                                            (Gankpo)
-                                        </span></br>
-                                        <div class="d-flex">
-                                            <span class="badge bg-danger"> Souscrit le : <span
-                                                    class="badge bg-dark">29/Aout/2005</span></span>
-                                            <span class="badge bg-danger"> Prend fin le : <span
-                                                    class="badge bg-dark">29/Aout/2005</span></span>
-                                        </div>
-                                    </small>
-                                </div>
-
-                                <div class="col-3 my-auto ">
-                                    <div class="d-flex justify-content-end">
-                                        <i class="fa-solid fa-ellipsis-vertical text-white py-1 bg-dark px-2 rounded-3 mx-1"
-                                            role="button" id="brandlink"></i>
-                                        <i class="fa-solid fas fa-plus text-white p-1 mx-1 bg-dark rounded-3 "
-                                            role="button" id="brandlink"></i>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row border-bottom shadow border-top py-1  mt-3 bg-danger"
-                                style="border-radius: 15px 15px 15px 15px;box-shadow: 1.5px 1.5px 1.5px 1.5px #00000014;">
-
-                                <div class="col-9 my-auto">
-                                    <small>
-                                        <span class="badge bg-white text-dark"> Tade Assurances</span></br>
-                                        <span style="font-family:poppins,sans-serif ;" class="text-white"> Assurance vie
-                                            (Gankpo)
-                                        </span></br>
-                                        <div class="d-flex">
-                                            <span class="badge bg-danger"> Souscrit le : <span
-                                                    class="badge bg-dark">29/Aout/2005</span></span>
-                                            <span class="badge bg-danger"> Prend fin le : <span
-                                                    class="badge bg-dark">29/Aout/2005</span></span>
-                                        </div>
-                                    </small>
-                                </div>
-
-                                <div class="col-3 my-auto ">
-                                    <div class="d-flex justify-content-end">
-                                        <i class="fa-solid fa-ellipsis-vertical text-white py-1 bg-dark px-2 rounded-3 mx-1"
-                                            role="button" id="brandlink"></i>
-                                        <i class="fa-solid fas fa-plus text-white p-1 mx-1 bg-dark rounded-3 "
-                                            role="button" id="brandlink"></i>
-
-                                    </div>
-                                </div>
-                            </div>
+                           </div>
+                           #}
+                     {% block sidebar %}
+                         
+                     {% endblock %}
 
 
 
@@ -751,14 +565,14 @@
     </div>
 
 
-  
-{#
+
+    {#
     <div class="d-flex justify-content-center max-w-10 mx-auto py-5">
         <video autoplay="false" controls class=" border border-3 rounded-3 border-dark img-fluid">
             <source src="{{asset('smart-labs-assets/img/vid.mp4')}}" type="video/mp4"></video>
     </div>
     #}
-    
+
     <footer class="mt-5 position-relative bottom-0 w-100  start-0">
         <div class=" animate__animated animate__fadeInUp bg-danger py-3 d-flex justify-content-around  mb-n40  w-100 border-top-4"
             style="position:absolute;margin-top:-4.35rem;">
@@ -770,7 +584,7 @@
         </div>
         <div class="footer bg-dark position-relative pt-4">
             <div class="w-100 d-flex justify-content-center">
-                <img src="{{asset('smart-labs-assets/img/logo-sm-4.png')}}" alt="" width="175" class="my-2">
+                <img src="{{asset('smart-labs-assets/img/logo-sm-4.png')}}" alt="" width="175" height="65" class="my-2">
             </div>
             <div style="font-family: poppins , sans-serif;" class="d-flex justify-content-center flex-wrap ">
                 <a href="" class="bg-transparent link-light mx-2 fm-poppins fw-bold"
@@ -800,12 +614,11 @@
 <script type="text/javascript" src="{{asset('smart-labs-assets/js/slick.js')}}"></script>
 <script type="text/javascript" src="{{asset('smart-labs-assets/js/script.js')}}"></script>
 <script>
-  $(document).ready(function () {
+    $(document).ready(function () {
 
-            $('.toast').toast('show');
+        $('.toast').toast('show');
 
-        });
-
+    });
 </script>
 {% block otherscript %}
 
